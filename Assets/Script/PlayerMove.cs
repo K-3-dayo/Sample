@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private float SpeedX;
-    [SerializeField] private float SpeedY;
+    [SerializeField] private float SpeedZ;
 
     [SerializeField] private float XMax;
     [SerializeField] private float XMin;
-    [SerializeField] private float YMax;
-    [SerializeField] private float YMin;
+    [SerializeField] private float ZMax;
+    [SerializeField] private float ZMin;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,13 +29,27 @@ public class PlayerMove : MonoBehaviour
         {
             transform.Translate(new Vector3(-SpeedX, 0, 0) * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.W) && this.transform.position.y < YMax)
+        if (Input.GetKey(KeyCode.W) && this.transform.position.z < ZMax)
         {
-            transform.Translate(new Vector3(0, SpeedY, 0) * Time.deltaTime);
+            transform.Translate(new Vector3(0, 0, SpeedZ) * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.S) && this.transform.position.y > YMin)
+        if (Input.GetKey(KeyCode.S) && this.transform.position.z > ZMin)
         {
-            transform.Translate(new Vector3(0, -SpeedY, 0) * Time.deltaTime);
+            transform.Translate(new Vector3(0, 0, -SpeedZ) * Time.deltaTime);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy");
+            Destroy(this.gameObject);
+        }
+     }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("Result");
     }
 }
