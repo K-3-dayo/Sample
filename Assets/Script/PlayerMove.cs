@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -40,6 +41,15 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy");
+            Destroy(this.gameObject);
+        }
+     }
+
+    private void OnDestroy()
+    {
+        SceneManager.LoadScene("Result");
     }
 }
