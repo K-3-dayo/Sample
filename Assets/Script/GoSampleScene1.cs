@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoSamplleScene2 : MonoBehaviour
+public class GoSampleScene1 : MonoBehaviour
 {
     private ScoreCounter scoreCounterScript;
-   [SerializeField]  public static int score;
+    [SerializeField] public static int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,4 +20,5 @@ public class GoSamplleScene2 : MonoBehaviour
             ScoreCounter.score = 0;
         }
     }
+
 }
