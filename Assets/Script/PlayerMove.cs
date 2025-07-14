@@ -46,7 +46,13 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("Enemy");
             Destroy(this.gameObject);
         }
-     }
+
+        if (other.gameObject.CompareTag("Bullet2"))
+        {
+
+            Destroy(this.gameObject);
+        }
+    }
 
     private void OnDestroy()
     {
