@@ -8,12 +8,13 @@ public class EnemyBulletMove : MonoBehaviour
     //Enemy‚ª”­Ë‚µ‚½Bullet‚Ì“®‚«‚ğŒˆ‚ß‚Ü‚·B
 
     [SerializeField] private float bulletSpeed = -5;
-    [SerializeField] private float bulletLifeTime;
+    [SerializeField] private float bulletLifeTime = 4.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        //’e‚ª¶¬‚³‚ê‚½‚Æ‚«‚ÉAlitetime•bŒã‚É©g‚ğ”jŠü‚·‚é
+        Destroy(gameObject, bulletLifeTime);
     }
 
     // Update is called once per frame

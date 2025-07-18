@@ -10,6 +10,7 @@ public class EnemyBulletMaker : MonoBehaviour
     private float waitTime;
     [SerializeField] private float balletZ;
     [SerializeField] private float balletX;
+    
     private float ranX;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +21,8 @@ public class EnemyBulletMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
+        
         if (waitTime < makeTime)
         {
             waitTime = waitTime + Time.deltaTime;
